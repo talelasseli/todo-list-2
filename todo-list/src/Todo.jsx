@@ -1,10 +1,10 @@
 import { Trash2, MoreVertical } from "lucide-react";
-
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 const Todo = ({ data, category, onUpdate }) => {
   const { id, title, description, completed } = data;
 
   const handleDelete = () => {
-    fetch(`http://localhost:5000/categories/${category}/todos/${id}`, {
+    fetch(`${API_URL}/categories/${category}/todos/${id}`, {
       method: "DELETE",
     })
       .then((response) => {
@@ -21,7 +21,7 @@ const Todo = ({ data, category, onUpdate }) => {
   };
 
   const handleToggle = () => {
-    fetch(`http://localhost:5000/categories/${category}/todos/${id}`, {
+    fetch(`${API_URL}/categories/${category}/todos/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

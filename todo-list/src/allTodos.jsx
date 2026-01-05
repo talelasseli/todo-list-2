@@ -3,6 +3,7 @@ import useFetch from "./useFetch.jsx";
 import Todo from "./Todo.jsx";
 import CreateTodo from "./Create.jsx";
 import { Plus } from "lucide-react";
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
 const AllTodos = ({ category }) => {
   console.log("Category:", category);
@@ -10,7 +11,7 @@ const AllTodos = ({ category }) => {
   const [showCreate, setShowCreate] = useState(false);
 
   const { data, error } = useFetch(
-    `http://localhost:5000/categories/${category}/todos?refresh=${refreshKey}`
+    `${API_URL}/${category}/todos?refresh=${refreshKey}`
   );
 
   const normalizedTodos = data

@@ -1,12 +1,12 @@
 // createList.jsx
 import { X } from "lucide-react";
-
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 const CreateList = ({ onClose, setSelectedList, setSelectedListTitle }) => {
   const HandleSubmit = (e) => {
     e.preventDefault();
     const listName = e.target.listName.value;
     const newList = { name: listName };
-    fetch("http://localhost:5000/categories", {
+    fetch(`${API_URL}/categories`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newList),

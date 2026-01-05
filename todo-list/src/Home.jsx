@@ -2,7 +2,7 @@
 import AllTodos from "./allTodos.jsx";
 import { MoreVertical } from "lucide-react";
 import { Trash2 } from "lucide-react";
-
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 const Home = ({
   List,
   selectedListTitle,
@@ -16,7 +16,7 @@ const Home = ({
       alert("Cannot delete the default list.");
       return;
     }
-    fetch(`http://localhost:5000/categories/${List}`, {
+    fetch(`${API_URL}/categories/${List}`, {
       method: "DELETE",
     })
       .then((response) => {

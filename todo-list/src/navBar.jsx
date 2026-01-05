@@ -11,12 +11,12 @@ import {
   ChevronDown,
   ChevronUp,
 } from "lucide-react";
-
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 const NavBar = ({ setSelectedList, setSelectedListTitle, selectedList }) => {
   const [showCreate, setShowCreate] = useState(false);
   const [showCreateList, setShowCreateList] = useState(false);
   const { data, loading, error, refetch } = useFetch(
-    "http://localhost:5000/categories"
+    `${API_URL}/categories`
   ); // 🔑 Get refetch
   const [listsExpanded, setListsExpanded] = useState(true);
 

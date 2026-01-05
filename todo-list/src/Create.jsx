@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { X, ListPlus } from "lucide-react";
-
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 const CreateTodo = ({ onClose, selectedList }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -13,7 +13,7 @@ const CreateTodo = ({ onClose, selectedList }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newTodo = { title, description, completed };
-    fetch(`http://localhost:5000/categories/${selectedList}/todos`, {
+    fetch(`${API_URL}/categories/${selectedList}/todos`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newTodo),
