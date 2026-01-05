@@ -11,7 +11,7 @@ const AllTodos = ({ category }) => {
   const [showCreate, setShowCreate] = useState(false);
 
   const { data, error } = useFetch(
-    `${API_URL}/${category}/todos?refresh=${refreshKey}`
+    `${API_URL}/categories/${category}/todos?refresh=${refreshKey}`
   );
 
   const normalizedTodos = data
