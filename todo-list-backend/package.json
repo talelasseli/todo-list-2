@@ -1,4 +1,8 @@
 {
+  "name": "todo-list-backend",
+  "version": "1.0.0",
+  "description": "Backend for Todo List Application",
+  "main": "server.js",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^5.2.1",
@@ -7,6 +11,5 @@
   },
   "scripts": {
     "start": "node index.js"
-    
   }
 }
